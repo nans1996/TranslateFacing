@@ -30,7 +30,8 @@ namespace TranslateGestureAPI.Controllers
             {
             ImageDataTrainingRequest image = JsonConvert.DeserializeObject<ImageDataTrainingRequest>(obj.ToString());
             byte[] byteImage = (byte[])(Array)image.data;
-            return Training.GenerateTranslateList(byteImage, image.name, image.value);
+            var tr =  Training.GenerateTranslateList(byteImage, image.name, image.value);
+                return tr;
             } catch (Exception e)
             {
                 return "Error of the training";
