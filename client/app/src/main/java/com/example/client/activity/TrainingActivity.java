@@ -1,13 +1,5 @@
 package com.example.client.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -20,18 +12,23 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.client.OkhttpClass;
 import com.example.client.R;
-import com.example.client.model.ImageDataClass;
 import com.example.client.model.ImageDataTrainingClass;
 import com.example.client.repos.ImageInterface;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class TrainingActivity extends AppCompatActivity {
 
@@ -41,7 +38,7 @@ public class TrainingActivity extends AppCompatActivity {
     EditText editValue;
     Button buttonSend;
     TextView textMessageView;
-    private FirebaseAuth mAuth;
+  //  private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +51,7 @@ public class TrainingActivity extends AppCompatActivity {
         editValue = (EditText)findViewById(R.id.editTextValue);
         textMessageView = (TextView) findViewById(R.id.textMessageValue);
         // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
+       // mAuth = FirebaseAuth.getInstance();
         //[END initialize_auth]
 
         buttonLoad.setOnClickListener(new View.OnClickListener() {
@@ -104,9 +101,9 @@ public class TrainingActivity extends AppCompatActivity {
     protected ImageDataTrainingClass convertBitmapToBite() {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream(selectBitmap.getWidth() * selectBitmap.getHeight());
         selectBitmap.compress(Bitmap.CompressFormat.JPEG, 100, buffer);
-        FirebaseUser currentuser = mAuth.getCurrentUser();
+       // FirebaseUser currentuser = mAuth.getCurrentUser();
         String value = editValue.getText().toString();
-        ImageDataTrainingClass img = new ImageDataTrainingClass(buffer.toByteArray(), currentuser.getUid(), value);
+        ImageDataTrainingClass img = new ImageDataTrainingClass(buffer.toByteArray(), "", value);
         return img;
     }
 

@@ -42,10 +42,22 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.8.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
     implementation 'com.google.code.gson:gson:2.6.1'
+    //implementation 'com.google.firebase:firebase-ml-vision:24.1.0'
+    // implementation 'com.google.firebase:firebase-ml-vision:24.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'org.jbundle.util.osgi.wrapped:org.jbundle.util.osgi.wrapped.org.apache.http.client:4.1.2'
     implementation 'com.github.nans1996:CImage:1.01'
-    implementation 'com.google.android.gms:play-services:12.0.1'
+    //implementation 'com.google.android.gms:play-services:12.0.1'
+   // implementation 'com.google.firebase:firebase-core:17.2.0'
+    implementation 'com.wonderkiln:camerakit:0.13.1'
+    implementation 'com.github.d-max:spots-dialog:1.1@aar'
+  //  implementation 'com.google.android.gms:play-services-vision:20.1.1'
+  //  implementation 'com.google.android.gms:play-services-vision-common:19.1.0'
+   // implementation 'com.google.android.gms:play-services-vision-image-label:18.0.4'
+    implementation 'com.google.firebase:firebase-ml-vision:24.0.3'
+    // If you want to detect face contours (landmark detection and classification
+    // don't require this additional model):
+    implementation 'com.google.firebase:firebase-ml-vision-face-model:20.0.1'
 }

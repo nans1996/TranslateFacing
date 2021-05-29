@@ -26,7 +26,6 @@ import com.example.client.repos.ImageInterface;
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.face.Face;
 import com.google.android.gms.vision.face.FaceDetector;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -45,7 +44,8 @@ public class TranslateActivity extends AppCompatActivity {
     private ImageView imageview;
     private  final int Pick_image = 1;
     Bitmap selectBitmap;
-    private FirebaseAuth mAuth;
+    Bitmap cutBitmup;
+ //   private FirebaseAuth mAuth;
     Button sendbutton;
     Button rotateButton;
     TextView textView1;
@@ -139,15 +139,14 @@ public class TranslateActivity extends AppCompatActivity {
                         final InputStream imageinputStream = getContentResolver().openInputStream(imageUri);
                         BitmapFactory.Options options = new BitmapFactory.Options();
                         options.inMutable = true;
-                       options.inJustDecodeBounds = true;
+                      // options.inJustDecodeBounds = true;
                       //  int imageWidth = Math.round(options.outWidth/10);
                       //  int imageHeight = Math.round(options.outHeight/10);
 
-                        Bitmap ctBitmap = BitmapFactory.decodeStream(imageinputStream, null, options);
-                        selectBitmap = decodeSampledBitmapFromStream(imageinputStream);
+                        selectBitmap = BitmapFactory.decodeStream(imageinputStream, null, options);
+                      //  selectBitmap = decodeSampledBitmapFromStream(imageinputStream);
 
-                        //imageview.setRotation(270);
-                        detectFaceInImage(imageview, selectBitmap);
+                        cutBitmup = detectFaceInImage(imageview, selectBitmap);
                         //imageview.setImageBitmap(selectBitmap);
                         //imageview.setImageDrawable(new BitmapDrawable(getResources(), selectBitmap));
                         sendbutton.setVisibility(View.VISIBLE);
@@ -179,8 +178,7 @@ public class TranslateActivity extends AppCompatActivity {
         return BitmapFactory.decodeStream(imageinputStream, null, options);
     }
 
-    public static int calculateInSampleSize(
-            BitmapFactory.Options options, int reqWidth, int reqHeight) {
+    public static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
         // Raw height and width of image
         final int height = options.outHeight;
         final int width = options.outWidth;
@@ -202,7 +200,7 @@ public class TranslateActivity extends AppCompatActivity {
         return inSampleSize;
     }
 
-    protected void detectFaceInImage(ImageView imageview, Bitmap bitmap) {
+    protected Bitmap detectFaceInImage(ImageView imageview, Bitmap bitmap) {
         Paint rectPaint = new Paint();
         rectPaint.setStrokeWidth(5);
         rectPaint.setColor(Color.RED);
@@ -215,7 +213,7 @@ public class TranslateActivity extends AppCompatActivity {
         FaceDetector faceDetector = new FaceDetector.Builder(getApplicationContext()).setTrackingEnabled(false).build();
             if(!faceDetector.isOperational()) {
                 resultDialog("Could not set up the face detector!");
-                return;
+                return bitmap;
             }
         textView1.setText("Ok");
         Frame frame = new Frame.Builder().setBitmap(bitmap).build();
@@ -223,20 +221,25 @@ public class TranslateActivity extends AppCompatActivity {
 
        // textView1.setText(faces.size());
 
-        for(int i = 0; i < faces.size(); i++) {
-            Face thisFace = faces.valueAt(i);
-            float x1 = thisFace.getPosition().x;
-            float y1 = thisFace.getPosition().y;
-            float x2 = x1 + thisFace.getWidth();
-            float y2 = y1 + thisFace.getHeight();
-            tempCanvas.drawRoundRect(new RectF(x1,y1, x2,y2), 2, 2, rectPaint);
-        }
-       // tempCanvas.drawRoundRect(new RectF(10,10, 500,500), 2, 2, rectPaint);
+        int x1 = 0;
+        int x2 = 0;
+        int y1 = 0;
+        int y2 = 0;
+            if (faces.size() > 0) {
+                Face thisFace = faces.valueAt(0);
+                x1 = Math.round(thisFace.getPosition().x);
+                y1 = Math.round(thisFace.getPosition().y);
+                x2 = x1 + Math.round(thisFace.getWidth());
+                y2 = y1 + Math.round(thisFace.getHeight());
+                tempCanvas.drawRoundRect(new RectF(x1, y1, x2, y2), 2, 2, rectPaint);
+            }
 
         imageview.setImageDrawable(new BitmapDrawable(getResources(), tempBitmap));
+
+        return  (x1 == x2) ? bitmap :  Bitmap.createBitmap(bitmap, x1, y1, x2-x1, y2-y1);
     }
 
-    protected ImageDataClass convertBitmapToBite() {
+    protected ImageDataClass convertBitmapToBite(Bitmap selectBitmap) {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream(selectBitmap.getWidth() * selectBitmap.getHeight());
         selectBitmap.compress(Bitmap.CompressFormat.JPEG, 100, buffer);
 //        FirebaseUser currentuser = mAuth.getCurrentUser();
@@ -267,7 +270,7 @@ public class TranslateActivity extends AppCompatActivity {
             ImageInterface service = retrofit.create(ImageInterface.class);
 
 
-            Call<String> call = service.translateImage(convertBitmapToBite());
+            Call<String> call = service.translateImage(convertBitmapToBite(cutBitmup));
             call.enqueue(new Callback<String>() {
                 @Override
                 public void onResponse(Call call, Response response)  {

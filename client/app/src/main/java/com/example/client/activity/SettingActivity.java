@@ -1,24 +1,21 @@
 package com.example.client.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.client.R;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class SettingActivity extends AppCompatActivity {
 
     EditText email;
     EditText password;
     Button updateButton;
-    private FirebaseAuth mAuth;
+   // private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +26,16 @@ public class SettingActivity extends AppCompatActivity {
         password = (EditText)findViewById(R.id.editTextEditPassword);
         updateButton = findViewById(R.id.buttonEdit);
 
-        mAuth = FirebaseAuth.getInstance();
-        FirebaseUser firebaseUser = mAuth.getCurrentUser();
+       // mAuth = FirebaseAuth.getInstance();
+      //  FirebaseUser firebaseUser = mAuth.getCurrentUser();
 
-        email.setText(firebaseUser.getEmail());
+       // email.setText(firebaseUser.getEmail());
 
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    firebaseUser.updateEmail(email.getText().toString());
+                 //   firebaseUser.updateEmail(email.getText().toString());
                     resultDialog("Successful");
                 } catch (Exception e) {
                     System.out.println("Ошибка смены email: "+ e.getMessage());
