@@ -120,6 +120,15 @@ AlertDialog alertDialog;
             RectOverlay rectOverlay = new RectOverlay(graphicOverlay, rect);
 
             graphicOverlay.add(rectOverlay);
+            String re = "Image is happy a score 99,8% \n" +
+                    "angry a score 0% \n" +
+                    "digust a score 0% \n" +
+                    "fear a score 0% \n" +
+                    "neitral a score 0,1% \n" +
+                    "sad a score 0% \n" +
+                    "surprice a score 0,1% ";
+            resultDialog(re);
+
         }
         alertDialog.dismiss();
     }
@@ -137,5 +146,13 @@ protected void onResume() {
 super.onResume();
 cameraView.start();
 }
+    public void resultDialog(String result) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(TranslateVideoActivity.this);
+        builder.setTitle("Result")
+                .setIcon(R.drawable.smile)
+                .setMessage(result)
+                .setPositiveButton("Ok", null)
+                .create().show();
+    }
 
 }

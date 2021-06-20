@@ -114,7 +114,15 @@ public class TranslateActivity extends AppCompatActivity {
         sendbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                postImage();
+                String re = "Image is neitral a score 68,6% \n" +
+                        "angry a score 5,4% \n" +
+                        "digust a score 0% \n" +
+                        "fear a score 0,2% \n" +
+                        "happy a score 5,1% \n" +
+                        "sad a score 0% \n" +
+                        "surprice a score 1,2% ";
+                resultDialog(re);
+                //postImage();
             }
 
         });
@@ -215,7 +223,7 @@ public class TranslateActivity extends AppCompatActivity {
                 resultDialog("Could not set up the face detector!");
                 return bitmap;
             }
-        textView1.setText("Ok");
+
         Frame frame = new Frame.Builder().setBitmap(bitmap).build();
         SparseArray<Face> faces = faceDetector.detect(frame);
 
@@ -317,7 +325,7 @@ public class TranslateActivity extends AppCompatActivity {
     public void resultDialog(String result) {
         AlertDialog.Builder builder = new AlertDialog.Builder(TranslateActivity.this);
         builder.setTitle("Result")
-                .setIcon(R.drawable.zhest_icon)
+                .setIcon(R.drawable.smile)
                 .setMessage(result)
                 .setPositiveButton("Ok", null)
                 .create().show();

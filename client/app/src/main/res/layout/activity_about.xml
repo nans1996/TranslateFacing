@@ -23,7 +23,7 @@
         android:textSize="18dp"
         android:layout_marginBottom="10dp"
         android:textColor="#000000"
-        android:text="Hello! Welcome to the TranslateGesture!" />
+        android:text="Hello! Welcome to the TranslateFacing!" />
 
     <TextView
         android:id="@+id/textViewAbout"
@@ -32,10 +32,9 @@
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18dp"
-        android:text="This app will help you recognize deaf and dumb gestures for the English alphabet.
-        For recognition, go to the Translate page on the main page of the application and upload an image for recognition.
-        If you want to train the program yourself, go to the Training page and upload the image and its decryption for recognition.
-        When you log in to the application, you can recognize by the data that you trained the system yourself " />
+        android:text="This app will help you recognize people's emotions. There are 7 types of emotions available: anger, disgust, fear, happiness, sadness, surprise, neutral facial expression
+ For recognition, go to the translation page on the main page of the app and upload an image for recognition.
+ On the video recognition page, you can recognize emotions from the video stream. There is also a history page where the recognition results are stored. " />
 
 
 </TableLayout>

@@ -51,6 +51,19 @@
         android:layout_width="50dp">
 
         <Button
+            android:id="@+id/buttonHistory"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:text="History" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="50dp">
+
+        <Button
             android:id="@+id/buttonAbout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

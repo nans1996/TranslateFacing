@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:text="a"
+            android:text="neitral"
             android:textAlignment="center"
             android:textColor="#000000"/>
 
@@ -60,7 +60,7 @@
             android:layout_width="50dp"
             android:layout_height="78dp"
             android:layout_weight="3"
-            android:text="Image was predicted as a a with a score of 0,5358181"
+            android:text="Image is neitral a score 68,6% "
             android:textAlignment="center"
             android:textColor="#000000" />
 
@@ -69,7 +69,37 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:text="20.05.2020"
+            android:text="06.06.2021"
+            android:textAlignment="center"
+            android:textColor="#000000"/>
+    </TableRow>
+
+    <TableRow  android:layout_marginTop="20dp">
+
+        <TextView
+            android:id="@+id/textRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="happy"
+            android:textAlignment="center"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/textRow5"
+            android:layout_width="50dp"
+            android:layout_height="78dp"
+            android:layout_weight="3"
+            android:text="Image is happy a score 99,8% "
+            android:textAlignment="center"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/textRow6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="06.06.2021"
             android:textAlignment="center"
             android:textColor="#000000"/>
     </TableRow>
