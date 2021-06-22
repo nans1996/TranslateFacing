@@ -1,0 +1,10 @@
+D:\NastyaLubimka\Visual Studio 2019\Projects\MlNetPhotoModel\MlNetPhotoModelML.Model\bin\Debug\netstandard2.0\MLModel.zip
+D:\NastyaLubimka\Visual Studio 2019\Projects\MlNetPhotoModel\MlNetPhotoModelML.Model\bin\Debug\netstandard2.0\MlNetPhotoModelML.Model.deps.json
+D:\NastyaLubimka\Visual Studio 2019\Projects\MlNetPhotoModel\MlNetPhotoModelML.Model\bin\Debug\netstandard2.0\MlNetPhotoModelML.Model.dll
+D:\NastyaLubimka\Visual Studio 2019\Projects\MlNetPhotoModel\MlNetPhotoModelML.Model\bin\Debug\netstandard2.0\MlNetPhotoModelML.Model.pdb
+D:\NastyaLubimka\Visual Studio 2019\Projects\MlNetPhotoModel\MlNetPhotoModelML.Model\obj\Debug\netstandard2.0\MlNetPhotoModelML.Model.csprojAssemblyReference.cache
+D:\NastyaLubimka\Visual Studio 2019\Projects\MlNetPhotoModel\MlNetPhotoModelML.Model\obj\Debug\netstandard2.0\MlNetPhotoModelML.Model.AssemblyInfoInputs.cache
+D:\NastyaLubimka\Visual Studio 2019\Projects\MlNetPhotoModel\MlNetPhotoModelML.Model\obj\Debug\netstandard2.0\MlNetPhotoModelML.Model.AssemblyInfo.cs
+D:\NastyaLubimka\Visual Studio 2019\Projects\MlNetPhotoModel\MlNetPhotoModelML.Model\obj\Debug\netstandard2.0\MlNetPhotoModelML.Model.csproj.CoreCompileInputs.cache
+D:\NastyaLubimka\Visual Studio 2019\Projects\MlNetPhotoModel\MlNetPhotoModelML.Model\obj\Debug\netstandard2.0\MlNetPhotoModelML.Model.dll
+D:\NastyaLubimka\Visual Studio 2019\Projects\MlNetPhotoModel\MlNetPhotoModelML.Model\obj\Debug\netstandard2.0\MlNetPhotoModelML.Model.pdb
