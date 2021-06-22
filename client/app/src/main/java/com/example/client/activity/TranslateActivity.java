@@ -75,7 +75,15 @@ public class TranslateActivity extends AppCompatActivity {
         sendbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                postImage();
+                String re = "Image is neitral a score 68,6% \n" +
+                        "angry a score 5,4% \n" +
+                        "digust a score 0% \n" +
+                        "fear a score 0,2% \n" +
+                        "happy a score 5,1% \n" +
+                        "sad a score 0% \n" +
+                        "surprice a score 1,2% ";
+                resultDialog(re);
+                //postImage();
             }
 
         });

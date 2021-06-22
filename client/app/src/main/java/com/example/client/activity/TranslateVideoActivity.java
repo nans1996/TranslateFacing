@@ -146,7 +146,7 @@ AlertDialog alertDialog;
             public void onResponse(Call call, Response response) {
                 try (ResponseBody responseBody = (ResponseBody) response.body()) {
                     if (response.isSuccessful()) {
-                        System.out.println("Р·Р°РїСЂРѕСЃ true");
+                        System.out.println("запрос true");
                         System.out.println(response.body());
                         System.out.println(responseBody);
                         String result = ((ResponseBody) response.body()).string();
@@ -161,7 +161,7 @@ AlertDialog alertDialog;
                         }
 
                     } else {
-                        System.out.println("Р·Р°РїСЂРѕСЃ false");
+                        System.out.println("запрос false");
                     }
                 } catch (Exception e) {
 
