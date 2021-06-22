@@ -44,7 +44,8 @@ namespace TranslateGestureAPI.Controllers
                 {
                     image.name = Guid.NewGuid().ToString();
                 }
-                return Translate.TranslateMethod(b, image.name, image.auth);
+                var rt = Translate.TranslateMethod(b, image.name, image.auth);
+                return rt;
             }
            catch (Exception e)
             {

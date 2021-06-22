@@ -4,15 +4,13 @@ public class ImageDataClass {
 
     private String name;
     private byte[] data;
-    private boolean auth;
 
     public ImageDataClass() {
     }
 
-    public ImageDataClass(String name, byte[] data, boolean auth) {
+    public ImageDataClass(String name, byte[] data) {
         this.name = name;
         this.data = data;
-        this.auth = auth;
     }
 
     public String getName() {
@@ -31,11 +29,4 @@ public class ImageDataClass {
         this.data = data;
     }
 
-    public boolean getValue() {
-        return auth;
-    }
-
-    public void setValue(boolean auth) {
-        this.auth = auth;
-    }
 }

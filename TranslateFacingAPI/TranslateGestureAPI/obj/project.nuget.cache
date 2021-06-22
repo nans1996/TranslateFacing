@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wbQOtU5kSxKA3vJX2eVHyKEMumWYMi1Fe66/99RfUjHaONJUzDJbJXIwobkALN89/bi2VJOrnWQ6KQClhEvPoQ==",
+  "dgSpecHash": "vlrF1+k+gt5sOVIkVRrMIu6oTf6naYHABbCqyYtghqNqjb2EZ0CFZIIOXQ6tRSo3AEKaui8JPc3XWVYCV8LhiQ==",
   "success": true,
-  "projectFilePath": "D:\\NastyaLubimka\\Repos\\TranslateFacing\\TranslateGestureAPI\\TranslateGestureAPI\\TranslateGestureAPI.csproj",
+  "projectFilePath": "D:\\NastyaLubimka\\Repos\\TranslateFacing\\TranslateFacingAPI\\TranslateGestureAPI\\TranslateGestureAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\csvhelper\\15.0.5\\csvhelper.15.0.5.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\google.protobuf\\3.10.0\\google.protobuf.3.10.0.nupkg.sha512",

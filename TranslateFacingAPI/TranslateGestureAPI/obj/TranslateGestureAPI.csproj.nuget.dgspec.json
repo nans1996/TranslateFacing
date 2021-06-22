@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\NastyaLubimka\\Repos\\TranslateFacing\\TranslateGestureAPI\\TranslateGestureAPI\\TranslateGestureAPI.csproj": {}
+    "D:\\NastyaLubimka\\Repos\\TranslateFacing\\TranslateFacingAPI\\TranslateGestureAPI\\TranslateGestureAPI.csproj": {}
   },
   "projects": {
-    "D:\\NastyaLubimka\\Repos\\TranslateFacing\\TranslateGestureAPI\\TranslateGestureAPI\\TranslateGestureAPI.csproj": {
+    "D:\\NastyaLubimka\\Repos\\TranslateFacing\\TranslateFacingAPI\\TranslateGestureAPI\\TranslateGestureAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\NastyaLubimka\\Repos\\TranslateFacing\\TranslateGestureAPI\\TranslateGestureAPI\\TranslateGestureAPI.csproj",
+        "projectUniqueName": "D:\\NastyaLubimka\\Repos\\TranslateFacing\\TranslateFacingAPI\\TranslateGestureAPI\\TranslateGestureAPI.csproj",
         "projectName": "TranslateGestureAPI",
-        "projectPath": "D:\\NastyaLubimka\\Repos\\TranslateFacing\\TranslateGestureAPI\\TranslateGestureAPI\\TranslateGestureAPI.csproj",
+        "projectPath": "D:\\NastyaLubimka\\Repos\\TranslateFacing\\TranslateFacingAPI\\TranslateGestureAPI\\TranslateGestureAPI.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\NastyaLubimka\\Repos\\TranslateFacing\\TranslateGestureAPI\\TranslateGestureAPI\\obj\\",
+        "outputPath": "D:\\NastyaLubimka\\Repos\\TranslateFacing\\TranslateFacingAPI\\TranslateGestureAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.client.DAOClass;
 import com.example.client.OkhttpClass;
 import com.example.client.R;
 import com.example.client.model.ImageDataClass;
@@ -31,6 +32,7 @@ import com.google.gson.GsonBuilder;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.util.Calendar;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -60,47 +62,6 @@ public class TranslateActivity extends AppCompatActivity {
         sendbutton = (Button) findViewById(R.id.buttonSend);
         rotateButton = (Button) findViewById(R.id.buttonRotate);
         textView1 = (TextView) findViewById(R.id.textView1);
-
-        // Initialize Firebase Auth
-       // mAuth = FirebaseAuth.getInstance();
-        //[END initialize_auth]
-
-        //test
-//        BitmapFactory.Options options = new BitmapFactory.Options();
-//        options.inMutable=true;
-//        Bitmap myBitmap = BitmapFactory.decodeResource(
-//                getApplicationContext().getResources(),
-//                R.drawable.test2,
-//                options);
-//
-//        Paint myRectPaint = new Paint();
-//        myRectPaint.setStrokeWidth(5);
-//        myRectPaint.setColor(Color.RED);
-//        myRectPaint.setStyle(Paint.Style.STROKE);
-//
-//        Bitmap tempBitmap = Bitmap.createBitmap(myBitmap.getWidth(), myBitmap.getHeight(), Bitmap.Config.RGB_565);
-//        Canvas tempCanvas = new Canvas(tempBitmap);
-//        tempCanvas.drawBitmap(myBitmap, 0, 0, null);
-//
-//        FaceDetector faceDetector = new FaceDetector.Builder(getApplicationContext()).setTrackingEnabled(false).build();
-//        if(!faceDetector.isOperational()){
-//            resultDialog("Could not set up the face detector!");
-//            return;}
-//
-//        Frame frame = new Frame.Builder().setBitmap(myBitmap).build();
-//        SparseArray<Face> faces = faceDetector.detect(frame);
-//
-//        for (int i = 0; i < faces.size(); i++) {
-//            Face thisFace = faces.valueAt(i);
-//            float x1 = thisFace.getPosition().x;
-//            float y1 = thisFace.getPosition().y;
-//            float x2 = x1 + thisFace.getWidth();
-//            float y2 = y1 + thisFace.getHeight();
-//            tempCanvas.drawRoundRect(new RectF(x1, y1, x2, y2), 2, 2, myRectPaint);
-//        }
-//
-//        imageview.setImageDrawable(new BitmapDrawable(getResources(), tempBitmap));
-        //end test
 
         imagebutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -215,7 +176,7 @@ public class TranslateActivity extends AppCompatActivity {
                 resultDialog("Could not set up the face detector!");
                 return bitmap;
             }
-        textView1.setText("Ok");
+
         Frame frame = new Frame.Builder().setBitmap(bitmap).build();
         SparseArray<Face> faces = faceDetector.detect(frame);
 
@@ -242,16 +203,9 @@ public class TranslateActivity extends AppCompatActivity {
     protected ImageDataClass convertBitmapToBite(Bitmap selectBitmap) {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream(selectBitmap.getWidth() * selectBitmap.getHeight());
         selectBitmap.compress(Bitmap.CompressFormat.JPEG, 100, buffer);
-//        FirebaseUser currentuser = mAuth.getCurrentUser();
         ImageDataClass img;
-        boolean auth;
-//        if (currentuser != null) {
-//            auth = true;
-//            img = new ImageDataClass(currentuser.getUid(), buffer.toByteArray(), auth);
-//        } else {
-            auth = false;
-            img = new ImageDataClass(" ", buffer.toByteArray(), auth);
-     //   }
+
+        img = new ImageDataClass(" ", buffer.toByteArray());
 
         return img;
     }
@@ -283,7 +237,9 @@ public class TranslateActivity extends AppCompatActivity {
                             int index = result.indexOf(",");
                             String res = result.substring(index+1, index+3);
                             if (Integer.parseInt(res) > 50) {
-                                resultDialog(result);
+                                String[] arr = result.split("");
+                                DAOClass.Add(arr[2], result.substring(index), Calendar.getInstance().getTime().toString());
+                                resultDialog(result.substring(index));
                             } else {
                                 resultDialog("Failed to recognize image");
                             }
@@ -317,7 +273,7 @@ public class TranslateActivity extends AppCompatActivity {
     public void resultDialog(String result) {
         AlertDialog.Builder builder = new AlertDialog.Builder(TranslateActivity.this);
         builder.setTitle("Result")
-                .setIcon(R.drawable.zhest_icon)
+                .setIcon(R.drawable.smile)
                 .setMessage(result)
                 .setPositiveButton("Ok", null)
                 .create().show();

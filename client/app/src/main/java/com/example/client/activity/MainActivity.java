@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button translateButton;
         Button aboutButton;
         Button translateVideoButton;
+        Button historyButton;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             translateButton = findViewById(R.id.buttonTranslate);
             aboutButton = findViewById(R.id.buttonAbout);
             translateVideoButton = findViewById(R.id.buttonTranslateVideo);
+            historyButton = findViewById(R.id.buttonHistory);
 
             mStatusTextView = (TextView)findViewById(R.id.textViewStatus);
             mDetailTextView = (TextView)findViewById(R.id.textViewDetail);
@@ -39,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             translateButton.setOnClickListener(this);
             aboutButton.setOnClickListener(this);
             translateVideoButton.setOnClickListener(this);
+            historyButton.setOnClickListener(this);
 
         }
 
@@ -61,6 +64,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 case R.id.buttonTranslateVideo: {
                     Intent intent = new Intent(this, TranslateVideoActivity.class);
+                    startActivity(intent);
+                    break;
+                }
+                case  R.id.buttonHistory: {
+                    Intent intent = new Intent(this, HistoryActivity.class);
                     startActivity(intent);
                     break;
                 }
